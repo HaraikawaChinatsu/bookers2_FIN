@@ -9,17 +9,13 @@
 <!--    <script src="/assets/application-11e027fe501efa6924bd87aa8f6ef7436fd1539022b412029c4a223dec9664f8.js" data-turbolinks-track="reload"></script>-->
   </head>
 
-<!--  <head>-->
-<!--    <title></title>-->
-<!--    %= csrf_meta_tags %>-->
-<!--    %= csp_meta_tag %>-->
-<!--    %= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-<!--    %= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>-->
-<!--  </head>-->
-<!--  <body>-->
-<!--    %= yield %>-->
-<!--  </body>-->
-<!--</html>-->
+  <head>
+    <title></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
 
   <body>
@@ -59,10 +55,6 @@
     </li>
     <li class="">
         <%= link_to "About", homes_about_path %>
-    </li>
-
-    <li class="">
-        <%= link_to "Users", user_path(current_user.id) %>
     </li>
 
       <li class="">
