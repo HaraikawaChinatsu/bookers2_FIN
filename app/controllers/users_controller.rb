@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   def show
-     @users = User.find(params[:id])
-     @books = Book.all
-     @book = Book.new
      @user = User.find(params[:id])
+    #  @user = User.find(params[:id])
+     @book = Book.new
+     @books = Book.where(user_id: @user.id)
+    #  @users = User.all
+    #  @post_images = @user.post_images.page(params[:page]).reverse_order
+
   end
 
   def index
@@ -14,6 +17,7 @@ class UsersController < ApplicationController
 
   def edit
     @users = User.find(params[:id])
+    @users = User.all
   end
 
   def create
