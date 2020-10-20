@@ -5,7 +5,7 @@ class UsersController < ApplicationController
      @book = Book.new
      @books = Book.where(user_id: @user.id)
     #  @users = User.all
-    #  @post_images = @user.post_images.page(params[:page]).reverse_order
+    # @post_images = @user.post_images.page(params[:page]).reverse_order
 
   end
 
@@ -35,5 +35,11 @@ class UsersController < ApplicationController
    end
 
   end
+
+  private
+  # ストロングパラメータ
+  # def
+  #   # params.require(:book).permit(:title, :opinion)image
+  # end
 
 end

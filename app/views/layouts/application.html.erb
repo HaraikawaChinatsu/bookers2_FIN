@@ -38,9 +38,8 @@
 <!--	<li class="active">パンくず</li>-->
 <!--</ol>-->
     <li class="">
-        <%= link_to "Home", homes_top_path %>
+        <%= link_to "Home", user_path(current_user.id) %>
     </li>
-
     <li class="">
         <%= link_to "Users", users_path %>
     </li>
@@ -55,7 +54,7 @@
     <% else %>
 
     <li class="">
-        <%= link_to "Home", homes_top_path %>
+        <%= link_to "Home", root_path %>
     </li>
     <li class="">
         <%= link_to "About", homes_about_path %>
