@@ -24,6 +24,6 @@ An error occurred while loading ./spec.
 [36m#   RSpec::Configuration#backtrace_inclusion_patterns for more information.[0m
 No examples found.
 
-Finished in 0.00003 seconds (files took 0.18493 seconds to load)
+Finished in 0.00003 seconds (files took 0.23147 seconds to load)
 [31m0 examples, 0 failures, 1 error occurred outside of examples[0m
 

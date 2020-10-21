@@ -13,11 +13,23 @@ class UsersController < ApplicationController
      @users = User.all
      @books = Book.all
      @book = Book.new
+     @images = ProfileImage.all
   end
 
   def edit
     @users = User.find(params[:id])
     @users = User.all
+
+   if @user.save
+   flash[:notice] ="successfully"
+   redirect_to user_path(@user.id)
+
+   else
+   flash.now[:danger] = "error"
+   render :show
+
+   end
+
   end
 
   def create
@@ -33,6 +45,16 @@ class UsersController < ApplicationController
     @books = Book.all
     render :index
    end
+
+   #デフォルトで画像を設定しておく。ユーザーのimageカラムにデータを代入
+   @user.image = "no_image.jpg"
+    if @user.save
+        flash[:success] = "successfully"
+        redirect_to user_path(@user.id)
+    else
+      flash.now[:danger] = "error"
+      render :show
+    end
 
   end
 

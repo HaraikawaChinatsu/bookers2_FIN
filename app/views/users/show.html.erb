@@ -3,12 +3,14 @@
       	<div class="row">
 <div class="col-xs-3">
     <h2>User info</h2>
-    <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" alt="No image">
+
     <table class="table">
       <thead>
         <tr>image</tr>
-          <!--%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg' %>-->
-      </thead>
+     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+     <!--%= image_tag @user.no_image.jpg, class:"user-icon" %>-->
+
+     </thead>
       <tbody>
         <tr>
           <td>name</td>
@@ -59,7 +61,8 @@
 		<h2>Books</h2>
 		<table class="table">
 		  <tbody><tr>
-        <td><a href="/users/25909">
+        <td>
+        <!--<a href="/users/25909">-->
    <thead>
      <tr>
       <th>image</th>
