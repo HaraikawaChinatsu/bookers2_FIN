@@ -4,10 +4,12 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  # 以下を追加
   def create
     # １. データを新規登録するためのインスタンス作成
-    @book = Book.new(book)
+    @book = Book.new(book_params)
+    @user = current_user
+    @book.user_id = @user.id
+    # @bookの値にcurrent_userの値を入れた
     # ２. データをデータベースに保存するためのsaveメソッド実行
    if @book.save
     # 詳細画面へリダイレクト
@@ -19,16 +21,19 @@ class BooksController < ApplicationController
     render :index
    end
 
+
   end
 
   def index
     @books = Book.all
     @book = Book.new
+    @user = current_user
     @images = ProfileImage.all
   end
 
   def show
     @book = Book.find(params[:id])
+    @books = Book.all
   end
 
   def edit
@@ -49,8 +54,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    # PostImage  # => camel
-    # post_image # => snake
+
     book = Book.find(params[:id])  # データ（レコード）を1件取得
     book.destroy  # データ（レコード）を削除
     redirect_to books_path  # 投稿一覧画面へリダイレクト
@@ -58,8 +62,8 @@ class BooksController < ApplicationController
 
   private
   # ストロングパラメータ
-  def book
-    params.require(:book).permit(:title, :opinion)
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 
 end

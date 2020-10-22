@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :profile_images do
   # resource :favorites, only: [:create, :destroy]
   # resources :post_comments, only: [:create, :destroy]
-end
+
+  end
+
   resources :users, only: [:show, :edit, :update, :index]
 end

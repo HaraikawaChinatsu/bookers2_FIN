@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   def show
      @user = User.find(params[:id])
     #  @user = User.find(params[:id])
+     @books = @user.books
      @book = Book.new
-     @books = Book.where(user_id: @user.id)
+    #  @book = @user.book.page(params[:page]).reverse_order
+    # Userが投稿した本はbooks
     #  @users = User.all
     # @post_images = @user.post_images.page(params[:page]).reverse_order
 
@@ -59,9 +61,9 @@ class UsersController < ApplicationController
   end
 
   private
-  # ストロングパラメータ
-  # def
-  #   # params.require(:book).permit(:title, :opinion)image
-  # end
+
+   def user_params
+      params.require(:user).permit(:name, :introduction)
+   end
 
 end
