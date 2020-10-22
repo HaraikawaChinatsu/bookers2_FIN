@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<header>
   <head>
   <h3>Bookers</h3>
   </head>
@@ -15,8 +16,6 @@
 <!--<meta name="csrf-token" content="vMuhvS2F041SF0kUaG5ByPUWNZrpDA+S0uwi60S9NRp59GoLTWWaT7Nihh+qtfKs6rGyCQCbLsXV2MCmOchrTw==">-->
 <!--    <link rel="stylesheet" media="all" href="/assets/application-945628f9f95377705c9108ec9a9704e6f6ffa0767c02e34400d75b5be64fc1b7.css" data-turbolinks-track="reload">-->
 <!--    <script src="/assets/application-11e027fe501efa6924bd87aa8f6ef7436fd1539022b412029c4a223dec9664f8.js" data-turbolinks-track="reload"></script>-->
-
-
   <head>
     <title></title>
     <%= csrf_meta_tags %>
@@ -24,10 +23,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-
   <body>
- <header>
     <!--<div class="header" id="header">-->
       <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
         <div class="container relative">
@@ -41,11 +37,7 @@
   <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
 
     <% if user_signed_in? %>
-<!--  <ol class="breadcrumb">-->
-<!--	<li><a href="http://bootstrap3.cyberlab.info"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Bootstrap3日本語リファレンス</a></li>-->
-<!--	<li><a href="http://bootstrap3.cyberlab.info/components/">コンポーネント</a></li>-->
-<!--	<li class="active">パンくず</li>-->
-<!--</ol>-->
+
     <li class="">
         <%= link_to "Home", user_path(current_user.id) %>
     </li>
