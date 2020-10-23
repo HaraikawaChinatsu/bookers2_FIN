@@ -11,16 +11,15 @@ class BooksController < ApplicationController
     @user = current_user
     @book.user_id = @user.id
     # @bookの値にcurrent_userの値を入れた
-    # ２. データをデータベースに保存するためのsaveメソッド実行
-   if @book.save
-    # 詳細画面へリダイレクト
+
+  if @book.save
     flash[:success] = "successfully"
     redirect_to book_path(@book.id)
 
-   else
+  else
     @books = Book.all
     render :index
-   end
+  end
 
 
   end
@@ -35,6 +34,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @books = Book.all
+    @user = current_user
   end
 
   def edit

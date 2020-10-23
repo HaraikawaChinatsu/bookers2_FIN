@@ -1,59 +1,55 @@
-<!html>
+
 <div class="body">
  <div class="container">
    <div class="row">
      <div class="col-xs-3">
       <h2>User info</h2>
-      <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" alt="No image">
       <table class="table">
-      <thead>
-        <tr> </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>name</td>
-          <td><%= @user.name %></td>
-        </tr>
-        <tr>
-          <td>introduction</td>
-          <td><%= @user.introduction %></td>
-    	  </tr>
-    	</tbody>
-    </table>
+        <thead>
+          <tr>
+            <td><%= attachment_image_tag @book.user, :profile_image, fallback:"no_image.jpg" ,size:"100x100" %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>introduction</td>
+            <td><%= @user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
 
 
 <div class="row">
 </div>
 <a class="col-xs-12 btn btn-default glyphicon glyphicon-wrench " href="/users/edit"></a>
-
 <h2>New book</h2>
-
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors
-  <% @book.errors.full_messages.each do |message| %>
-  <%= message %>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>errors
+    <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
   <% end %>
-<% end %>
-
 <!-- form_with部分 -->
-<%= form_with model: @book, local:true do |f| %>
+ <%= form_with model: @book, local:true do |f| %>
   <h4>title</h4>
-  <%= f.text_field :title %>
+    <%= f.text_field :title , class:"col-xs-12 book_title" %>
   <h4>opinion</h4>
-  <%= f.text_area :body %>
+    <%= f.text_area :body , class:"col-xs-12 book_body" %>
 <div class="actions row">
-<!--<input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12" data-disable-with="Create Book">-->
-<div class="text-center">
- <%= f.submit 'Create Book', class: 'btn btn-primary col-xs-12' %>
-</div>
+ <div class="text-center">
+    <%= f.submit 'Create Book', class: 'btn btn-primary col-xs-12' %>
+ </div>
 </div>
 
 <% end %>
 
   <div class="actions row">
-    <!--<input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12" data-disable-with="Create Book">-->
   </div>
-</form>
+  </form>
   </div>
 
 

@@ -5,6 +5,7 @@ before_action :authenticate_user!
     #  @user = User.find(params[:id])
      @books = @user.books
      @book = Book.new
+     @user = current_user
     #  @book = @user.book.page(params[:page]).reverse_order
     # Userが投稿した本はbooks
     #  @users = User.all
@@ -16,12 +17,19 @@ before_action :authenticate_user!
      @users = User.all
      @books = Book.all
      @book = Book.new
+     @user = current_user
      @images = ProfileImage.all
   end
 
   def edit
-    @users = User.find(params[:id])
-    @users = User.all
+    @user = User.find(params[:id])
+    # @users = User.all
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    # redirect_to book_path(book)
 
    if @user.save
    flash[:notice] ="successfully"
@@ -33,7 +41,9 @@ before_action :authenticate_user!
 
    end
 
+
   end
+
 
   def create
     # １. データを新規登録するためのインスタンス作成
@@ -60,6 +70,7 @@ before_action :authenticate_user!
     end
 
   end
+
 
   private
 
