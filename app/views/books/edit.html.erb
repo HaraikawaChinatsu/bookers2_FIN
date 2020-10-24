@@ -5,8 +5,8 @@
 <div class="field row">
 <%= form_with model: @book, local:true do |f| %>
   <div>Title<%= f.text_field :title, class:"col-xs-12 book_title" %></div>
-  <div>Opinion<%= f.text_field :opinion, class:"col-xs-12 book_body"  %></div>
-  <div><%= f.submit "Update User",  class:"btn btn-primary col-xs-12" %></div>
+  <div>Opinion<%= f.text_field :body, class:"col-xs-12 book_body"  %></div>
+  <div><%= f.submit "Update Book",  class:"btn btn-primary col-xs-12" %></div>
 <% end %>
 </div>
 

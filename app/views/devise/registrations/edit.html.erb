@@ -1,6 +1,5 @@
 <h2>User info</h2>
 
-
 <%= form_with model: @user, local:true do |f| %>
   <div>Name<%= f.text_field :name %></div>
   <div>Image<%= f.attachment_field :profile_image %></div>

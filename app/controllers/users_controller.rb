@@ -5,7 +5,12 @@ before_action :authenticate_user!
     #  @user = User.find(params[:id])
      @books = @user.books
      @book = Book.new
-     @user = current_user
+    #  @user = current_user
+
+    #  @post = Post.new(
+    #  content: params[:content],
+    #  user_id: @current_user.id
+
     #  @book = @user.book.page(params[:page]).reverse_order
     # Userが投稿した本はbooks
     #  @users = User.all
@@ -23,23 +28,33 @@ before_action :authenticate_user!
 
   def edit
     @user = User.find(params[:id])
-    # @users = User.all
+    unless current_user.id == @user.id
+        redirect_to user_path(current_user)
+        # flash.now[:danger] = "error"
+    end
   end
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    # redirect_to book_path(book)
 
-   if @user.save
+   if  @user.update(user_params)
    flash[:notice] ="successfully"
    redirect_to user_path(@user.id)
 
    else
    flash.now[:danger] = "error"
-   render :show
+   render :edit
 
    end
+
+    # @user.image = "no_image.jpg"
+    # if @user.save
+    #     flash[:success] = "successfully"
+    #     redirect_to user_path(@user.id)
+    # else
+    #   flash.now[:danger] = "error"
+    #   render :show
+    # end
 
 
   end

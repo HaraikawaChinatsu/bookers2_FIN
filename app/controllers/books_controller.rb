@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
+
   def new
     # Viewへ渡すためのインスタンス変数に空のモデルオブジェクトを生成する。
     @book = Book.new
@@ -39,18 +40,32 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+
+    unless current_user.id == @book.user.id
+      redirect_to books_path
+    end
+
+    # if @book.edit(book_params)
+    #   flash[:success] = "Book was successfully updated."
+    #   redirect_to book_path(@book.id)
+    # else
+    #   flash.now[:danger] = "error"
+    #   render :edit
+    # end
+
   end
 
   def update
     @book = Book.find(params[:id])
 
-    if @book.update(book)
+    if @book.update(book_params)
       flash[:success] = "Book was successfully updated."
       redirect_to book_path(@book.id)
     else
       flash.now[:danger] = "error"
       render :edit
     end
+
 
   end
 

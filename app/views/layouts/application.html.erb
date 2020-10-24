@@ -1,8 +1,8 @@
 <html>
   <head>
-  <h3>Bookers</h3>
+  <h3 style="color:white">Bookers</h3>
 
-    <!--<title>Bookers</title>-->
+
     <meta name="csrf-param" content="authenticity_token">
     <meta name="csrf-token" content="T0Mlfm6IssCMs1JVhQFJrA1O1wl2LuEfsVUZB0alSDMOZh3vm6sC4Wt0zt2OtFiCvFvd1SRofWrG9FHLMO5FSw==">
 
@@ -60,8 +60,15 @@
 
 </header>
 
+<body>
+  <% flash.each do |message_type, message| %>
+  <div class="flash"><%= message %></div>
 
-    <%= yield %>
+  <% end %>
+
+</body>
+
+<%= yield %>
 
 <footer>
   <div class="container">
